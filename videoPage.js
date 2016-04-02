@@ -1,6 +1,6 @@
-$(function() {
+$(function(){
 
-   $(".input input").focus(function() {
+$(".input input").focus(function() {
 
       $(this).parent(".input").each(function() {
          $("label", this).css({
@@ -30,24 +30,50 @@ $(function() {
       }
    });
 
-   $(".button").click(function(e) {
-      var pX = e.pageX,
-         pY = e.pageY,
-         oX = parseInt($(this).offset().left),
-         oY = parseInt($(this).offset().top);
+   $(".button").click(function() {
+       
+       $("#btnSpan").html(" ");
+       $("#btnSpan").addClass("fa fa-check fa-2x");
+       $(this).removeClass("submitBtn");
+       $(this).addClass("thanks");
+        setTimeout(function(){
+            if (!$(".alt-2").hasClass('material-button')) {
+         $(".shape").css({
+            "width": "100%",
+            "height": "100%",
+            "transform": "rotate(0deg)"
+         })
 
-      $(this).append('<span class="click-efect x-' + oX + ' y-' + oY + '" style="margin-left:' + (pX - oX) + 'px;margin-top:' + (pY - oY) + 'px;"></span>')
-      $('.x-' + oX + '.y-' + oY + '').animate({
-         "width": "500px",
-         "height": "500px",
-         "top": "-250px",
-         "left": "-250px",
+         setTimeout(function() {
+            $(".overbox").css({
+               "overflow": "initial"
+            })
+         }, 600)
 
-      }, 600);
-      $("button", this).addClass('active');
-   })
+         $(".alt-2").animate({
+            "width": "140px",
+            "height": "140px"
+         }, 500, function() {
+            $(".box").removeClass("back");
+             
+            $(".alt-2").removeClass('active');
+         });
+          
 
-   $(".alt-2").click(function() {
+         $(".overbox .title").fadeOut(300);
+         $(".overbox .input").fadeOut(300);
+         $(".overbox .button").fadeOut(300);
+            $(".alt-2").addClass('material-buton');
+            $(".heart").fadeIn(3000);
+            $(".alt-2").addClass("whiteBtn").fadeIn(300);
+      }
+        },500);
+        $("#heartBtn").attr("disbabled",true);
+   });
+
+    
+ $(".alt-2").click(closeBtn);
+    function closeBtn(){
       if (!$(this).hasClass('material-button')) {
          $(".shape").css({
             "width": "100%",
@@ -66,20 +92,24 @@ $(function() {
             "height": "140px"
          }, 500, function() {
             $(".box").removeClass("back");
-
-            $(this).removeClass('active')
+             
+            $(this).removeClass('active');
          });
+          
 
          $(".overbox .title").fadeOut(300);
          $(".overbox .input").fadeOut(300);
          $(".overbox .button").fadeOut(300);
-
+          
          $(".alt-2").addClass('material-buton');
+        $(".heart").fadeIn(3000);
+        $(this).addClass("whiteBtn").fadeIn(300);
       }
 
-   })
-
-   $(".material-button").click(function() {
+   }
+    
+ 
+$(".material-button").click(function() {
 
       if ($(this).hasClass('material-button')) {
          setTimeout(function() {
@@ -88,9 +118,13 @@ $(function() {
             })
             $(".box").addClass("back");
          }, 200)
-         $(this).addClass('active').animate({
-            "width": "700px",
-            "height": "700px"
+         $(this).addClass("pinkHeart");
+          $(this).removeClass("whiteBtn");
+          
+         $(".heart").hide();
+          $(this).addClass('active').animate({
+            "width": "500px",
+            "height": "500px"
          });
 
          setTimeout(function() {
@@ -115,5 +149,5 @@ $(function() {
       }
 
    });
-
+    
 });

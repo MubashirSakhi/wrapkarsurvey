@@ -96,8 +96,8 @@ $(".input input").focus(function() {
             $(this).removeClass('active');
          });
           
-
-         $(".overbox .title").fadeOut(300);
+         $(".overbox h2").fadeOut(300);
+         $(".overbox .myTitle").fadeOut(300);
          $(".overbox .input").fadeOut(300);
          $(".overbox .button").fadeOut(300);
           
@@ -124,7 +124,7 @@ $(".material-button").click(function() {
          $(".heart").hide();
           $(this).addClass('active').animate({
             "width": "500px",
-            "height": "500px"
+            "height": "520px"
          });
 
          setTimeout(function() {
@@ -133,8 +133,8 @@ $(".material-button").click(function() {
                "height": "50%",
                "transform": "rotate(45deg)"
             })
-
-            $(".overbox .title").fadeIn(300);
+            $(".overbox h2").fadeIn(300);
+            $(".overbox .myTitle").fadeIn(300);
             $(".overbox .input").fadeIn(300);
             $(".overbox .button").fadeIn(300);
          }, 700)
